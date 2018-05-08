@@ -5,4 +5,7 @@ node {
     stage("Check version"){
         sh "docker --version"
     }
+    stage("Check git vesion"){
+        sh "git --version"
+    }
 }
