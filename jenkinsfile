@@ -8,4 +8,7 @@ node {
     stage("Check git vesion"){
         sh "git --version"
     }
+    stage("Time Stamp"){
+        echo "$date"
+    }
 }
