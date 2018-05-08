@@ -16,8 +16,5 @@ pipeline {
                 sh "docker build -t hello-nginx"
             }
         }
-        stage("Time Stamp"){
-            echo "${currentBuild}"
-        }
     }
 }
