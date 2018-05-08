@@ -1,14 +1,23 @@
-node {
-    stage("Prepare"){
-        echo "Hello World"
-    }
-    stage("Check version"){
-        sh "docker --version"
-    }
-    stage("Check git vesion"){
-        sh "git --version"
-    }
-    stage("Time Stamp"){
-        echo "${currentBuild.startTimeInMillis}"
+pipeline {
+    stages {
+        stage("Prepare"){
+            steps {
+                echo "Hello World"
+            }
+        
+        }
+        stage("Check version"){
+            steps {
+                sh "docker --version"
+            }
+        }
+        stage("Build Image"){
+            steps {
+                sh "docker build -t hello-nginx"
+            }
+        }
+        stage("Time Stamp"){
+            echo "${currentBuild}"
+        }
     }
 }
