@@ -9,6 +9,6 @@ node {
         sh "git --version"
     }
     stage("Time Stamp"){
-        echo "$(date)"
+        echo "${currentBuild.startTimeInMillis}"
     }
 }
