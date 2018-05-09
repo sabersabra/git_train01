@@ -15,5 +15,13 @@ pipeline {
                 sh "docker --version"
             }
         }
+        stage("deploy"){
+            steps {
+                sshagent ("uat-server") {
+                    sh "ssh core@167.99.237.229 docker pull ${env.imageName}"
+                }
+
+            }
+        }
     }
 }
