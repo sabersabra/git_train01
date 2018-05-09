@@ -15,16 +15,12 @@ pipeline {
                 sh "docker --version"
             }
         }
-        stage("Build Image"){
+        stage("deploy"){
             steps {
-                sh "docker build -t ${env.imageName} ."
-                sh "docker tag ${env.imageName} ${env.imageName}:1.${env.BUILD_NUMBER} "
-            }
-        }
-        stage("Push Image"){
-            steps {
-                sh "docker login -u sabersabra -p Orlion@11"
-                sh "docker push ${env.imageName}"
+                sshagent ("uat-server") {
+                    sh "echo 'xxxx'"
+                }
+
             }
         }
     }
