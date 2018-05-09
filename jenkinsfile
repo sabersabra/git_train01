@@ -17,7 +17,7 @@ pipeline {
         }
         stage("deploy"){
             steps {
-                sshagent (credentials: ['zabbix-srv']) {
+                sshagent (['zabbix-srv']) {
                     sh "scp private.txt root@10.6.3.101:/home/sarunyu/"
                     //sh 'ssh -o StrictHostKeyChecking=no -l cloudbees 167.99.237.229 uname -a'
                     //sh "ssh -i private.key core@167.99.237.229 docker pull ${env.imageName}"
