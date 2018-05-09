@@ -17,7 +17,7 @@ pipeline {
         }
         stage("deploy"){
             steps {
-                sshagent (credentials: ['uat-server2']) {
+                sshagent (credentials: ['uat-server']) {
                     sh "ssh core@167.99.237.229 docker pull ${env.imageName}"
                 }
             }
