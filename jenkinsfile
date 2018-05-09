@@ -18,7 +18,8 @@ pipeline {
         stage("deploy"){
             steps {
                 sshagent (credentials: ['uat-server']) {
-                    sh "ssh -i private.key core@167.99.237.229 docker pull ${env.imageName}"
+                    sh 'ssh -o StrictHostKeyChecking=no -l cloudbees 167.99.237.229 uname -a'
+                    //sh "ssh -i private.key core@167.99.237.229 docker pull ${env.imageName}"
                 }
             }
         }
