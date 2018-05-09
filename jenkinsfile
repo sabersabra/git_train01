@@ -17,7 +17,7 @@ pipeline {
         }
         stage("deploy"){
             steps {
-                sshagent (credentials: ['zabbix-srv']) {
+                sshagent (['zabbix-srv']) {
                     sh "ssh core@139.59.223.198 docker pull ${env.imageName}"
                 }
             }
