@@ -23,5 +23,11 @@ pipeline {
 
             }
         }
+        //stage("push image"){
+            //steps {
+                // sh "docker login -u sabersabra -p Orlion@11"
+                // sh "docker push ${env.imageName}"
+            //}
+       // }
     }
 }
