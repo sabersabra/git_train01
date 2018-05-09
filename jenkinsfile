@@ -15,13 +15,5 @@ pipeline {
                 sh "docker --version"
             }
         }
-        stage("deploy"){
-            steps {
-                sshagent ("uat-server") {
-                    sh "ls -lah"
-                }
-
-            }
-        }
     }
 }
